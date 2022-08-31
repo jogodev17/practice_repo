@@ -1,0 +1,30 @@
+@use './functions' as f;
+// desktop first
+// 374.98, 767.98, 999.98, 1439.98
+$breakpoints-down: (
+    "mobile": f.getRem(374.98),
+    "widge-screen": f.getRem(767.98),
+    "tablet": f.getRem(999.98),
+    "desktop": f.getRem(1439.98),
+);
+
+@mixin breakpoint-up($size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}
+
+// mobile first
+// 375, 768, 1000, 1440
+$breakpoints-up: (
+    "mobile": f.getRem(374.98),
+    "widge-screen": f.getRem(767.98),
+    "tablet": f.getRem(999.98),
+    "desktop": f.getRem(1439.98),
+);
+
+@mixin breakpoint-down($size) {
+    @media (min-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}

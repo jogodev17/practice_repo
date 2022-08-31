@@ -1,0 +1,6 @@
+@use './functions' as f;
+.container {
+    width: min(100% - f.getRem(60), f.getRem(1200));
+    margin: 0 auto;
+    padding: 10px 0;
+}
